@@ -65,30 +65,4 @@ impl Manager {
             })
             .map_err(|err| format!("error inserting document: {}", err))
     }
-
-    // pub async fn insert_one(&self, word: &str) -> Result<Option<results::InsertOneResult>, String> {
-    //     let word_bson =
-    //         to_bson(&Word::new(word)).map_err(|err| format!("error serializing BSON: {}", err))?;
-
-    //     if let Bson::Document(document) = word_bson {
-    //         return self
-    //             .frontier
-    //             .insert_one(document, None)
-    //             .await
-    //             .map(|result| Some(result))
-    //             .or_else(|err| match *err.kind {
-    //                 error::ErrorKind::WriteError(error::WriteFailure::WriteError(
-    //                     error::WriteError {
-    //                         code: 11000,
-    //                         code_name: _,
-    //                         message: _,
-    //                     },
-    //                 )) => Ok(None),
-    //                 _ => Err(err),
-    //             })
-    //             .map_err(|err| format!("error inserting document: {}", err));
-    //     }
-
-    //     Err(format!("error converting BSON to Mongo document"))
-    // }
 }
